@@ -1,0 +1,26 @@
+---
+title: "Basic probability"
+---
+
+## Probability distributions
+
+The CLT states that the sum of many small independent random variables will be a random variable with an approximate normal distribution.
+
+$$
+z \sim N(\mu_z,\sigma_z^2)
+$$
+
+$\sum_{i=1}^{n}z_i$ will be normally distribute if the individual variances are small compared to the total variance. That is, the sum of independent random variables might not be normally distributed if there is a large factor (ex: sex on height) representing much of the total variance.
+
+The mean and standard deviation of a log transformed variable are its geometric mean and geometric standard deviation.
+
+```{r}
+n <- 1000
+y <- 700
+
+estimate <- y/n
+se <- sqrt(estimate*(1-estimate)/n)
+int.95 <- estimate + qnorm(c(.25,.975))*se
+
+```
+
